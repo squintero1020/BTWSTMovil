@@ -104,7 +104,7 @@ namespace BTWSTMovil.BO
                 DataTable dTable = new DataTable();
                 dTable = dsAttr.Tables["Tabla"].Copy();
                 entidadesGetAtributos.dt = dTable;
-                entidadesGetAtributos.Msj = "Se cargarón los atributos";
+                entidadesGetAtributos.Msj = "Se cargarón los atributos del servicio";
             }
             catch (Exception ex)
             {
@@ -131,7 +131,7 @@ namespace BTWSTMovil.BO
                 DataTable dTable = new DataTable();
                 dTable = dsMaterial.Tables["Tabla"].Copy();
                 entidadesGetMaterial.dt = dTable;
-                entidadesGetMaterial.Msj = "Se cargarón los materiales";
+                entidadesGetMaterial.Msj = "Se cargarón los materiales del trabajo";
             }
             catch (Exception ex)
             {
