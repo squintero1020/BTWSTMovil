@@ -1,0 +1,1209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="shortcut icon" href="web.ico" type="image/x-icon">
+    <link rel="icon" href="web.ico" type="image/x-icon">
+
+    <link href="~/css/typography.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="~/css/reset.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="~/css/screen.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="~/css/reset.css" media="print" rel="stylesheet" type="text/css">
+    <link href="~/css/print.css" media="print" rel="stylesheet" type="text/css">
+    <!--SCRIPT-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    @*<script>
+            $(document).ready(function () {
+                $("#showValidate").click(function () {
+                    var sw = 0;
+                    if (sw == 0) {
+                        sw = 1;
+                        document.getElementById("response-classValidatePassword").style.display = "block";
+                    }
+                    else {
+                        sw = 0;
+                        document.getElementById("response-classValidatePassword").style.display = "none";
+                    }
+                });
+            });
+        </script>*@
+    <script>
+        $(document).ready(function () {
+            var sw1 = 1, sw2 = 1, sw3 = 1, sw4 = 1,sw5= 1,sw6=1,sw7=1,sw8=1;
+            var hijos = document.querySelectorAll("ul.operations > li >div>h3>span.http_method");
+            for (unHijo of hijos) {
+                unHijo.addEventListener("click", function (evt) {
+                    if (evt.target.id == "showValidate") {
+                        if (sw1 == 0) {
+                            sw1 = 1;
+                            document.getElementById("response-classValidatePassword").style.display = "none";
+                        } else {
+                            sw1 = 0;
+                            document.getElementById("response-classValidatePassword").style.display = "block";
+                        }
+                    }
+                    if (evt.target.id == "showCheck") {
+                        if (sw2 == 0) {
+                            sw2 = 1;
+                            document.getElementById("response-ValidatePasswordShow").style.display = "none";
+                        } else {
+                            sw2 = 0;
+                            document.getElementById("response-ValidatePasswordShow").style.display = "block";
+                        }
+                    }
+                    if (evt.target.id == "showReportTime") {
+                        if (sw3 == 0) {
+                            sw3 = 1;
+                            document.getElementById("response-showReportTime").style.display = "none";
+                        } else {
+                            sw3 = 0;
+                            document.getElementById("response-showReportTime").style.display = "block";
+                        }
+                    }
+                    if (evt.target.id == "showTraveler") {
+                        if (sw4 == 0) {
+                            sw4 = 1;
+                            document.getElementById("response-showTraveler").style.display = "none";
+                        } else {
+                            sw4 = 0;
+                            document.getElementById("response-showTraveler").style.display = "block";
+                        }
+                    }
+
+                    if (evt.target.id == "showGetInventory") {
+                        if (sw5 == 0) {
+                            sw5 = 1;
+                            document.getElementById("response-showGetInventory").style.display = "none";
+                        } else {
+                            sw5 = 0;
+                            document.getElementById("response-showGetInventory").style.display = "block";
+                        }
+                    }
+                    if (evt.target.id == "showReportMaterial") {
+                        if (sw6 == 0) {
+                            sw6 = 1;
+                            document.getElementById("response-showReportMaterial").style.display = "none";
+                        } else {
+                            sw6 = 0;
+                            document.getElementById("response-showReportMaterial").style.display = "block";
+                        }
+                    }
+                    if (evt.target.id == "showReturnMaterial") {
+                        if (sw7 == 0) {
+                            sw7 = 1;
+                            document.getElementById("response-showReturnMaterial").style.display = "none";
+                        } else {
+                            sw7 = 0;
+                            document.getElementById("response-showReturnMaterial").style.display = "block";
+                        }
+                    }
+                    if (evt.target.id == "showReportLegalization") {
+                        if (sw8 == 0) {
+                            sw8 = 1;
+                            document.getElementById("response-showReportLegalization").style.display = "none";
+                        } else {
+                            sw8 = 0;
+                            document.getElementById("response-showReportLegalization").style.display = "block";
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+    <body load="click()" class="swagger-section">
+        <div id="header">
+            <div class="swagger-ui-wrap">
+                <a id="logo" target="_blank"></a><a href="#home" id="restlogo">REST API</a>
+                <form id="api_selector"></form>
+            </div>
+        </div>
+
+        <div id="message-bar" class="swagger-ui-wrap message-success" data-sw-translate=""></div>
+        <div id="swagger-ui-container" class="swagger-ui-wrap">
+            <div class="info" id="api_info">
+                <div class="info_title">Servicio Externo</div>
+            </div>
+            <div class="container" id="resources_container">
+                <div class="authorize-wrapper"></div>
+
+                <ul id="resources">
+                    <li id="resource_Custom_methods" class="resource">
+                        <div class="heading">
+
+
+                        </div>
+                        <div>
+                            <p></p>
+                        </div>
+                        <ul class="endpoints" id="Custom_methods_endpoint_list" style="">
+                            <!--VALIDATE VALIDATE ACCESS-->
+                            <li class="endpoint">
+                                <ul class="operations">
+                                    <li class="post operation" id="Custom_methods_ValidatePassword">
+                                        <div class="heading">
+                                            <h3>
+                                                <span class="http_method">
+                                                    <a href="#Custom_methods_ValidatePassword" id="showValidate" class="toggleOperation">post</a>
+                                                </span>
+                                                <span class="path">
+                                                    <a>/ValidateAccess</a>
+                                                </span>
+                                            </h3>
+                                            <ul class="options">
+                                                <li>
+                                                    <a>
+                                                        <span class="markdown">
+                                                            <p>Invocar el  método ValidateAccess</p>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="content" id="ValidatePasswordShow" style="display: table-row;">
+
+                                            <div id="response-classValidatePassword" class="response-class" style="display: none;">
+                                                <form accept-charset="UTF-8" class="sandbox">
+                                                    <div style="margin:0;padding:0;display:inline"></div>
+                                                    <h4 data-sw-translate="">Parámetros</h4>
+                                                    <table class="fullwidth parameters">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""></th>
+                                                                <th style="width: 310px; max-width: 310px" data-sw-translate=""></th>
+                                                                <th style="width: 200px; max-width: 200px" data-sw-translate=""></th>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""> </th>
+                                                                <th style="width: 220px; max-width: 230px" data-sw-translate=""> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="operation-params">
+                                                            <tr>
+                                                                <span class="model-signature">
+                                                                    <div>
+                                                                        <div>
+
+                                                                            <div>
+
+                                                                                <div class="signature-container">
+
+
+                                                                                    <div class="snippet" style="display: block;">
+                                                                                        <div class="snippet_json" style="display: block;">
+                                                                                            <pre><code>
+{
+    "DcdUserID":"userID",
+    "Pwd":"passwordID"
+}
+                                                                                        </code></pre>
+                                                                                            <small class="notice" data-sw-translate=""></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </form>
+
+                                                <span class="model-signature">
+                                                    <div>
+                                                        <div>
+                                                            <ul class="signature-nav">
+                                                                <h4 data-sw-translate="">Respuesta</h4>
+                                                            </ul>
+                                                            <div>
+
+                                                                <div class="signature-container">
+                                                                    <div class="description" style="display: none;">
+                                                                        <span class="strong">GetNewAttribut_output {</span><div>
+                                                                            <span class="propName ">parameters</span> (<span class="propType">inline_model</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown">
+
+                                                                        </div><span class="strong">}</span><span class="strong">inline_model {</span><div><span class="propName ">ds</span> (<span class="propType">Erp.Tablesets.AttributTableset</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributTableset {</span><div class="readOnly"><span class="propName ">Attribut</span> (<span class="propType">Array[Erp.Tablesets.AttributRow]</span>, <span class="propOptKey">optional</span>, <span class="propReadOnly">read only</span>),</div><div><span class="propName ">ExtensionTables</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableData]</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributRow {</span><div>
+
+
+                                                                        </div><div><span class="propName ">BitFlag</span> (<span class="propType">integer</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown"></span>,</div><div>
+
+                                                                        </div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableData {</span><div><span class="propName ">Table</span> (<span class="propType">Array[Ice.Extensions.ExtensionRow]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">TableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">Columns</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableColumn]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PrimaryKeyColumns</span> (<span class="propType">Array[string]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableSystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionRow {</span><div><span class="propName ">ColumnValues</span> (<span class="propType">Array[Inline Model 1]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">RowMod</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SysRowID</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableColumn {</span><div><span class="propName ">ColumnName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">ColumnType</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Inline Model 1 {</span><span class="strong">}</span>
+                                                                    </div>
+
+                                                                    <div class="snippet" style="display: block;">
+                                                                        <div class="snippet_json" style="display: block;">
+                                                                            <pre><code>
+{
+    "passLoginEpicor": true,
+    "DcdUserID": "string",
+    "Pwd": "string",
+    "EmailAddress": "string",
+    "Msj": "string",
+    "time": "string"
+}
+</code></pre>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></p>
+                                                <br>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--GET INVENTORY-->
+                            <li class="endpoint">
+                                <ul class="operations">
+                                    <li class="post operation" id="Custom_methods_showGetInventory">
+                                        <div class="heading">
+                                            <h3>
+                                                <span class="http_method">
+                                                    <a href="#Custom_methods_showGetInventory" id="showGetInventory" class="toggleOperation">post</a>
+                                                </span>
+                                                <span class="path">
+                                                    <a>/GetInventory</a>
+                                                </span>
+                                            </h3>
+                                            <ul class="options">
+                                                <li>
+                                                    <a>
+                                                        <span class="markdown">
+                                                            <p>Invocar el  método JobTraveler</p>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="content" id="ValidatePasswordShow" style="display: table-row;">
+
+                                            <div id="response-showGetInventory" class="response-class" style="display: none;">
+                                                <form accept-charset="UTF-8" class="sandbox">
+                                                    <div style="margin:0;padding:0;display:inline"></div>
+                                                    <h4 data-sw-translate="">Parámetros</h4>
+                                                    <table class="fullwidth parameters">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""></th>
+                                                                <th style="width: 310px; max-width: 310px" data-sw-translate=""></th>
+                                                                <th style="width: 200px; max-width: 200px" data-sw-translate=""></th>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""> </th>
+                                                                <th style="width: 220px; max-width: 230px" data-sw-translate=""> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="operation-params">
+                                                            <tr>
+                                                                <span class="model-signature">
+                                                                    <div>
+                                                                        <div>
+
+                                                                            <div>
+
+                                                                                <div class="signature-container">
+
+
+                                                                                    <div class="snippet" style="display: block;">
+                                                                                        <div class="snippet_json" style="display: block;">
+                                                                                            <pre><code>
+{
+    "DcdUserID":"userID",
+    "Pwd":"passwordID",
+}
+</code></pre>
+                                                                                            <small class="notice" data-sw-translate=""></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </form>
+
+                                                <span class="model-signature">
+                                                    <div>
+                                                        <div>
+                                                            <ul class="signature-nav">
+                                                                <h4 data-sw-translate="">Respuesta</h4>
+                                                            </ul>
+                                                            <div>
+
+                                                                <div class="signature-container">
+                                                                    <div class="description" style="display: none;">
+                                                                        <span class="strong">GetNewAttribut_output {</span><div>
+                                                                            <span class="propName ">parameters</span> (<span class="propType">inline_model</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown">
+
+                                                                        </div><span class="strong">}</span><span class="strong">inline_model {</span><div><span class="propName ">ds</span> (<span class="propType">Erp.Tablesets.AttributTableset</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributTableset {</span><div class="readOnly"><span class="propName ">Attribut</span> (<span class="propType">Array[Erp.Tablesets.AttributRow]</span>, <span class="propOptKey">optional</span>, <span class="propReadOnly">read only</span>),</div><div><span class="propName ">ExtensionTables</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableData]</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributRow {</span><div>
+
+
+                                                                        </div><div><span class="propName ">BitFlag</span> (<span class="propType">integer</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown"></span>,</div><div>
+
+                                                                        </div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableData {</span><div><span class="propName ">Table</span> (<span class="propType">Array[Ice.Extensions.ExtensionRow]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">TableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">Columns</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableColumn]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PrimaryKeyColumns</span> (<span class="propType">Array[string]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableSystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionRow {</span><div><span class="propName ">ColumnValues</span> (<span class="propType">Array[Inline Model 1]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">RowMod</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SysRowID</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableColumn {</span><div><span class="propName ">ColumnName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">ColumnType</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Inline Model 1 {</span><span class="strong">}</span>
+                                                                    </div>
+
+                                                                    <div class="snippet" style="display: block;">
+                                                                        <div class="snippet_json" style="display: block;">
+                                                                            <pre><code>
+{
+    "DcdUserID": "string",
+    "Pwd": "string",
+    "ds": {
+    "partBin": [],
+    "SerialNo": []
+    },
+    "Msj": null
+}
+</code></pre>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></p>
+                                                <br>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--CHECK SCHEDULE-->
+                            <li class="endpoint">
+                                <ul class="operations">
+                                    <li class="post operation" id="Custom_methods_ValidateCheck">
+                                        <div class="heading">
+                                            <h3>
+                                                <span class="http_method">
+                                                    <a href="#Custom_methods_ValidateCheck" id="showCheck" class="toggleOperation">post</a>
+                                                </span>
+                                                <span class="path">
+                                                    <a>/CheckSchedule</a>
+                                                </span>
+                                            </h3>
+                                            <ul class="options">
+                                                <li>
+                                                    <a>
+                                                        <span class="markdown">
+                                                            <p>Invocar el  método CheckSchedule</p>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="content" id="ValidatePasswordShow" style="display: table-row;">
+
+                                            <div id="response-ValidatePasswordShow" class="response-class" style="display: none;">
+                                                <form accept-charset="UTF-8" class="sandbox">
+                                                    <div style="margin:0;padding:0;display:inline"></div>
+                                                    <h4 data-sw-translate="">Parámetros</h4>
+                                                    <table class="fullwidth parameters">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""></th>
+                                                                <th style="width: 310px; max-width: 310px" data-sw-translate=""></th>
+                                                                <th style="width: 200px; max-width: 200px" data-sw-translate=""></th>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""> </th>
+                                                                <th style="width: 220px; max-width: 230px" data-sw-translate=""> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="operation-params">
+                                                            <tr>
+                                                                <span class="model-signature">
+                                                                    <div>
+                                                                        <div>
+
+                                                                            <div>
+
+                                                                                <div class="signature-container">
+
+
+                                                                                    <div class="snippet" style="display: block;">
+                                                                                        <div class="snippet_json" style="display: block;">
+                                                                                            <pre><code>
+    {
+    "DcdUserID":"userID",
+    "Pwd":"string",
+    "StartDate":"fecha inicio de filtro",
+    "EndDate":"fecha fin de filtro"
+    }
+</code></pre>
+                                                                                            <small class="notice" data-sw-translate=""></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </form>
+
+                                                <span class="model-signature">
+                                                    <div>
+                                                        <div>
+                                                            <ul class="signature-nav">
+                                                                <h4 data-sw-translate="">Respuesta</h4>
+                                                            </ul>
+                                                            <div>
+
+                                                                <div class="signature-container">
+                                                                    <div class="description" style="display: none;">
+                                                                        <span class="strong">GetNewAttribut_output {</span><div>
+                                                                            <span class="propName ">parameters</span> (<span class="propType">inline_model</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown">
+
+                                                                        </div><span class="strong">}</span><span class="strong">inline_model {</span><div><span class="propName ">ds</span> (<span class="propType">Erp.Tablesets.AttributTableset</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributTableset {</span><div class="readOnly"><span class="propName ">Attribut</span> (<span class="propType">Array[Erp.Tablesets.AttributRow]</span>, <span class="propOptKey">optional</span>, <span class="propReadOnly">read only</span>),</div><div><span class="propName ">ExtensionTables</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableData]</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributRow {</span><div>
+
+
+                                                                        </div><div><span class="propName ">BitFlag</span> (<span class="propType">integer</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown"></span>,</div><div>
+
+                                                                        </div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableData {</span><div><span class="propName ">Table</span> (<span class="propType">Array[Ice.Extensions.ExtensionRow]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">TableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">Columns</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableColumn]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PrimaryKeyColumns</span> (<span class="propType">Array[string]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableSystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionRow {</span><div><span class="propName ">ColumnValues</span> (<span class="propType">Array[Inline Model 1]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">RowMod</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SysRowID</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableColumn {</span><div><span class="propName ">ColumnName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">ColumnType</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Inline Model 1 {</span><span class="strong">}</span>
+                                                                    </div>
+
+                                                                    <div class="snippet" style="display: block;">
+                                                                        <div class="snippet_json" style="display: block;">
+                                                                            <pre><code>
+{
+    "DcdUserID": "string",
+    "Pwd": "string",
+    "StartDate": "",
+    "EndDate": "",
+    "dt": [],
+    "Msj": ""
+    }
+</code></pre>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></p>
+                                                <br>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--REPORT TIME-->
+                            <li class="endpoint">
+                                <ul class="operations">
+                                    <li class="post operation" id="Custom_methods_ReportTime">
+                                        <div class="heading">
+                                            <h3>
+                                                <span class="http_method">
+                                                    <a href="#Custom_methods_ReportTime" id="showReportTime" class="toggleOperation">post</a>
+                                                </span>
+                                                <span class="path">
+                                                    <a>/ReportTime</a>
+                                                </span>
+                                            </h3>
+                                            <ul class="options">
+                                                <li>
+                                                    <a>
+                                                        <span class="markdown">
+                                                            <p>Invocar el  método ReportTime</p>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="content" id="ValidatePasswordShow" style="display: table-row;">
+
+                                            <div id="response-showReportTime" class="response-class" style="display: none;">
+                                                <form accept-charset="UTF-8" class="sandbox">
+                                                    <div style="margin:0;padding:0;display:inline"></div>
+                                                    <h4 data-sw-translate="">Parámetros</h4>
+                                                    <table class="fullwidth parameters">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""></th>
+                                                                <th style="width: 310px; max-width: 310px" data-sw-translate=""></th>
+                                                                <th style="width: 200px; max-width: 200px" data-sw-translate=""></th>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""> </th>
+                                                                <th style="width: 220px; max-width: 230px" data-sw-translate=""> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="operation-params">
+                                                            <tr>
+                                                                <span class="model-signature">
+                                                                    <div>
+                                                                        <div>
+
+                                                                            <div>
+
+                                                                                <div class="signature-container">
+
+
+                                                                                    <div class="snippet" style="display: block;">
+                                                                                        <div class="snippet_json" style="display: block;">
+                                                                                            <pre><code>
+{
+    "DcdUserID":"userID",
+    "Pwd":"passwordID",
+    "JobNum":"",
+    "oprSeq":0,
+    "LaborType":true (true:Directo, false: Indirecto), 
+    "IndirectCore":"",
+    "ExpenseCode":"",
+    "StartDate":"yyyy-MM-dd HH:mm",
+    "EndDate":"yyyy-MM-dd HH:mm ",
+    "LaborNote":"",
+}
+</code></pre>
+                                                                                            <small class="notice" data-sw-translate=""></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </form>
+
+                                                <span class="model-signature">
+                                                    <div>
+                                                        <div>
+                                                            <ul class="signature-nav">
+                                                                <h4 data-sw-translate="">Respuesta</h4>
+                                                            </ul>
+                                                            <div>
+
+                                                                <div class="signature-container">
+                                                                    <div class="description" style="display: none;">
+                                                                        <span class="strong">GetNewAttribut_output {</span><div>
+                                                                            <span class="propName ">parameters</span> (<span class="propType">inline_model</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown">
+
+                                                                        </div><span class="strong">}</span><span class="strong">inline_model {</span><div><span class="propName ">ds</span> (<span class="propType">Erp.Tablesets.AttributTableset</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributTableset {</span><div class="readOnly"><span class="propName ">Attribut</span> (<span class="propType">Array[Erp.Tablesets.AttributRow]</span>, <span class="propOptKey">optional</span>, <span class="propReadOnly">read only</span>),</div><div><span class="propName ">ExtensionTables</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableData]</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributRow {</span><div>
+
+
+                                                                        </div><div><span class="propName ">BitFlag</span> (<span class="propType">integer</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown"></span>,</div><div>
+
+                                                                        </div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableData {</span><div><span class="propName ">Table</span> (<span class="propType">Array[Ice.Extensions.ExtensionRow]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">TableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">Columns</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableColumn]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PrimaryKeyColumns</span> (<span class="propType">Array[string]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableSystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionRow {</span><div><span class="propName ">ColumnValues</span> (<span class="propType">Array[Inline Model 1]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">RowMod</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SysRowID</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableColumn {</span><div><span class="propName ">ColumnName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">ColumnType</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Inline Model 1 {</span><span class="strong">}</span>
+                                                                    </div>
+
+                                                                    <div class="snippet" style="display: block;">
+                                                                        <div class="snippet_json" style="display: block;">
+                                                                            <pre><code>
+{
+    "DcdUserID": "string",
+    "Pwd": "string",
+    "JobNum": "string",
+    "oprSeq": int,
+    "LaborType": true,
+    "IndirectCode": null,
+    "ExpenseCode": null,
+    "StartDate": DateTime,
+    "EndDate": DateTime,
+    "LaborNote": "string",
+    "ReportCreate": true,
+    "Msj": "string"
+}
+</code></pre>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></p>
+                                                <br>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--REPORT MATERIAL-->
+                            <li class="endpoint">
+                                <ul class="operations">
+                                    <li class="post operation" id="Custom_methods_showReportMaterial">
+                                        <div class="heading">
+                                            <h3>
+                                                <span class="http_method">
+                                                    <a href="#Custom_methods_showReportMaterial" id="showReportMaterial" class="toggleOperation">post</a>
+                                                </span>
+                                                <span class="path">
+                                                    <a>/ReportMaterial</a>
+                                                </span>
+                                            </h3>
+                                            <ul class="options">
+                                                <li>
+                                                    <a>
+                                                        <span class="markdown">
+                                                            <p>Invocar el  método ReportMaterial</p>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="content" id="ValidatePasswordShow" style="display: table-row;">
+
+                                            <div id="response-showReportMaterial" class="response-class" style="display: none;">
+                                                <form accept-charset="UTF-8" class="sandbox">
+                                                    <div style="margin:0;padding:0;display:inline"></div>
+                                                    <h4 data-sw-translate="">Parámetros</h4>
+                                                    <table class="fullwidth parameters">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""></th>
+                                                                <th style="width: 310px; max-width: 310px" data-sw-translate=""></th>
+                                                                <th style="width: 200px; max-width: 200px" data-sw-translate=""></th>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""> </th>
+                                                                <th style="width: 220px; max-width: 230px" data-sw-translate=""> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="operation-params">
+                                                            <tr>
+                                                                <span class="model-signature">
+                                                                    <div>
+                                                                        <div>
+
+                                                                            <div>
+
+                                                                                <div class="signature-container">
+
+
+                                                                                    <div class="snippet" style="display: block;">
+                                                                                        <div class="snippet_json" style="display: block;">
+                                                                                            <pre><code>
+{
+    "DcdUserID":"userID",
+    "Pwd":"passwordId",
+    "JobNum":"jobnu,",
+    "dMaterial":
+        [
+            {
+            "PartNum":"string",
+            "PartDesc":"string",
+            "Qty":0,
+            "LotNum":"string",
+            "SerialNo":"string"
+            }
+        ]
+}
+</code></pre>
+                                                                                            <small class="notice" data-sw-translate=""></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </form>
+
+                                                <span class="model-signature">
+                                                    <div>
+                                                        <div>
+                                                            <ul class="signature-nav">
+                                                                <h4 data-sw-translate="">Respuesta</h4>
+                                                            </ul>
+                                                            <div>
+
+                                                                <div class="signature-container">
+                                                                    <div class="description" style="display: none;">
+                                                                        <span class="strong">GetNewAttribut_output {</span><div>
+                                                                            <span class="propName ">parameters</span> (<span class="propType">inline_model</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown">
+
+                                                                        </div><span class="strong">}</span><span class="strong">inline_model {</span><div><span class="propName ">ds</span> (<span class="propType">Erp.Tablesets.AttributTableset</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributTableset {</span><div class="readOnly"><span class="propName ">Attribut</span> (<span class="propType">Array[Erp.Tablesets.AttributRow]</span>, <span class="propOptKey">optional</span>, <span class="propReadOnly">read only</span>),</div><div><span class="propName ">ExtensionTables</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableData]</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributRow {</span><div>
+
+
+                                                                        </div><div><span class="propName ">BitFlag</span> (<span class="propType">integer</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown"></span>,</div><div>
+
+                                                                        </div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableData {</span><div><span class="propName ">Table</span> (<span class="propType">Array[Ice.Extensions.ExtensionRow]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">TableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">Columns</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableColumn]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PrimaryKeyColumns</span> (<span class="propType">Array[string]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableSystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionRow {</span><div><span class="propName ">ColumnValues</span> (<span class="propType">Array[Inline Model 1]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">RowMod</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SysRowID</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableColumn {</span><div><span class="propName ">ColumnName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">ColumnType</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Inline Model 1 {</span><span class="strong">}</span>
+                                                                    </div>
+
+                                                                    <div class="snippet" style="display: block;">
+                                                                        <div class="snippet_json" style="display: block;">
+                                                                            <pre><code>
+{
+    "DcdUserID": "string",
+    "Pwd": "string",
+    "JobNum": "string",
+    "dMaterial": null,
+    "Msj": "string"
+}
+</code></pre>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></p>
+                                                <br>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--RETURN MATERIAL-->
+                            <li class="endpoint">
+                                <ul class="operations">
+                                    <li class="post operation" id="Custom_methods_showReturnMaterial">
+                                        <div class="heading">
+                                            <h3>
+                                                <span class="http_method">
+                                                    <a href="#Custom_methods_showReturnMaterial" id="showReturnMaterial" class="toggleOperation">post</a>
+                                                </span>
+                                                <span class="path">
+                                                    <a>/ReturnMaterial</a>
+                                                </span>
+                                            </h3>
+                                            <ul class="options">
+                                                <li>
+                                                    <a>
+                                                        <span class="markdown">
+                                                            <p>Invocar el  método ReturnMaterial</p>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="content" id="ValidatePasswordShow" style="display: table-row;">
+
+                                            <div id="response-showReturnMaterial" class="response-class" style="display: none;">
+                                                <form accept-charset="UTF-8" class="sandbox">
+                                                    <div style="margin:0;padding:0;display:inline"></div>
+                                                    <h4 data-sw-translate="">Parámetros</h4>
+                                                    <table class="fullwidth parameters">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""></th>
+                                                                <th style="width: 310px; max-width: 310px" data-sw-translate=""></th>
+                                                                <th style="width: 200px; max-width: 200px" data-sw-translate=""></th>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""> </th>
+                                                                <th style="width: 220px; max-width: 230px" data-sw-translate=""> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="operation-params">
+                                                            <tr>
+                                                                <span class="model-signature">
+                                                                    <div>
+                                                                        <div>
+
+                                                                            <div>
+
+                                                                                <div class="signature-container">
+
+
+                                                                                    <div class="snippet" style="display: block;">
+                                                                                        <div class="snippet_json" style="display: block;">
+                                                                                            <pre><code>
+{
+    "DcdUserID":"userID",
+    "Pwd":"passwordID",
+    "JobNum":"string",
+    "PartNum":"string",
+    "Qty":decimal,
+    "FromJobSeq":int,
+    "FromWarehouseCode":string,
+    "FromBinNum":string,
+    "FromJobSeqPartNum":string:PartNum,
+    "ToWarehouseCode":string,
+    "ToBinNum":string
+}
+</code></pre>
+                                                                                            <small class="notice" data-sw-translate=""></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </form>
+
+                                                <span class="model-signature">
+                                                    <div>
+                                                        <div>
+                                                            <ul class="signature-nav">
+                                                                <h4 data-sw-translate="">Respuesta</h4>
+                                                            </ul>
+                                                            <div>
+
+                                                                <div class="signature-container">
+                                                                    <div class="description" style="display: none;">
+                                                                        <span class="strong">GetNewAttribut_output {</span><div>
+                                                                            <span class="propName ">parameters</span> (<span class="propType">inline_model</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown">
+
+                                                                        </div><span class="strong">}</span><span class="strong">inline_model {</span><div><span class="propName ">ds</span> (<span class="propType">Erp.Tablesets.AttributTableset</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributTableset {</span><div class="readOnly"><span class="propName ">Attribut</span> (<span class="propType">Array[Erp.Tablesets.AttributRow]</span>, <span class="propOptKey">optional</span>, <span class="propReadOnly">read only</span>),</div><div><span class="propName ">ExtensionTables</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableData]</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributRow {</span><div>
+
+
+                                                                        </div><div><span class="propName ">BitFlag</span> (<span class="propType">integer</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown"></span>,</div><div>
+
+                                                                        </div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableData {</span><div><span class="propName ">Table</span> (<span class="propType">Array[Ice.Extensions.ExtensionRow]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">TableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">Columns</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableColumn]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PrimaryKeyColumns</span> (<span class="propType">Array[string]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableSystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionRow {</span><div><span class="propName ">ColumnValues</span> (<span class="propType">Array[Inline Model 1]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">RowMod</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SysRowID</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableColumn {</span><div><span class="propName ">ColumnName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">ColumnType</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Inline Model 1 {</span><span class="strong">}</span>
+                                                                    </div>
+
+                                                                    <div class="snippet" style="display: block;">
+                                                                        <div class="snippet_json" style="display: block;">
+                                                                            <pre><code>
+{
+    "DcdUserID": "string",
+    "Pwd": "string",
+    "JobNum": "string",
+    "PartNum": null,
+    "Qty": 0,
+    "FromJobSeq": 0,
+    "FromWarehouseCode": null,
+    "FromBinNum": null,
+    "FromJobSeqPartNum": null,
+    "ToWarehouseCode": null,
+    "ToBinNum": null,
+    "Msj": "string"
+}
+</code></pre>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></p>
+                                                <br>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--REPORT LEGALIZATIONS-->
+                            <li class="endpoint">
+                                <ul class="operations">
+                                    <li class="post operation" id="Custom_methods_showReportLegalization">
+                                        <div class="heading">
+                                            <h3>
+                                                <span class="http_method">
+                                                    <a href="#Custom_methods_showReportLegalization" id="showReportLegalization" class="toggleOperation">post</a>
+                                                </span>
+                                                <span class="path">
+                                                    <a>/ReportLegalization</a>
+                                                </span>
+                                            </h3>
+                                            <ul class="options">
+                                                <li>
+                                                    <a>
+                                                        <span class="markdown">
+                                                            <p>Invocar el  método ReportLegalization</p>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="content" id="ValidatePasswordShow" style="display: table-row;">
+
+                                            <div id="response-showReportLegalization" class="response-class" style="display: none;">
+                                                <form accept-charset="UTF-8" class="sandbox">
+                                                    <div style="margin:0;padding:0;display:inline"></div>
+                                                    <h4 data-sw-translate="">Parámetros</h4>
+                                                    <table class="fullwidth parameters">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""></th>
+                                                                <th style="width: 310px; max-width: 310px" data-sw-translate=""></th>
+                                                                <th style="width: 200px; max-width: 200px" data-sw-translate=""></th>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""> </th>
+                                                                <th style="width: 220px; max-width: 230px" data-sw-translate=""> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="operation-params">
+                                                            <tr>
+                                                                <span class="model-signature">
+                                                                    <div>
+                                                                        <div>
+
+                                                                            <div>
+
+                                                                                <div class="signature-container">
+
+
+                                                                                    <div class="snippet" style="display: block;">
+                                                                                        <div class="snippet_json" style="display: block;">
+                                                                                            <pre><code>
+{
+
+}
+</code></pre>
+                                                                                            <small class="notice" data-sw-translate=""></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </form>
+
+                                                <span class="model-signature">
+                                                    <div>
+                                                        <div>
+                                                            <ul class="signature-nav">
+                                                                <h4 data-sw-translate="">Respuesta</h4>
+                                                            </ul>
+                                                            <div>
+
+                                                                <div class="signature-container">
+                                                                    <div class="description" style="display: none;">
+                                                                        <span class="strong">GetNewAttribut_output {</span><div>
+                                                                            <span class="propName ">parameters</span> (<span class="propType">inline_model</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown">
+
+                                                                        </div><span class="strong">}</span><span class="strong">inline_model {</span><div><span class="propName ">ds</span> (<span class="propType">Erp.Tablesets.AttributTableset</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributTableset {</span><div class="readOnly"><span class="propName ">Attribut</span> (<span class="propType">Array[Erp.Tablesets.AttributRow]</span>, <span class="propOptKey">optional</span>, <span class="propReadOnly">read only</span>),</div><div><span class="propName ">ExtensionTables</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableData]</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributRow {</span><div>
+
+
+                                                                        </div><div><span class="propName ">BitFlag</span> (<span class="propType">integer</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown"></span>,</div><div>
+
+                                                                        </div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableData {</span><div><span class="propName ">Table</span> (<span class="propType">Array[Ice.Extensions.ExtensionRow]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">TableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">Columns</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableColumn]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PrimaryKeyColumns</span> (<span class="propType">Array[string]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableSystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionRow {</span><div><span class="propName ">ColumnValues</span> (<span class="propType">Array[Inline Model 1]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">RowMod</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SysRowID</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableColumn {</span><div><span class="propName ">ColumnName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">ColumnType</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Inline Model 1 {</span><span class="strong">}</span>
+                                                                    </div>
+
+                                                                    <div class="snippet" style="display: block;">
+                                                                        <div class="snippet_json" style="display: block;">
+                                                                            <pre><code>
+{
+
+}
+</code></pre>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></p>
+                                                <br>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--JOB TRAVELER-->
+                            <li class="endpoint">
+                                <ul class="operations">
+                                    <li class="post operation" id="Custom_methods_showTraveler">
+                                        <div class="heading">
+                                            <h3>
+                                                <span class="http_method">
+                                                    <a href="#Custom_methods_showTraveler" id="showTraveler" class="toggleOperation">post</a>
+                                                </span>
+                                                <span class="path">
+                                                    <a>/JobTraveler</a>
+                                                </span>
+                                            </h3>
+                                            <ul class="options">
+                                                <li>
+                                                    <a>
+                                                        <span class="markdown">
+                                                            <p>Invocar el  método JobTraveler</p>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="content" id="ValidatePasswordShow" style="display: table-row;">
+
+                                            <div id="response-showTraveler" class="response-class" style="display: none;">
+                                                <form accept-charset="UTF-8" class="sandbox">
+                                                    <div style="margin:0;padding:0;display:inline"></div>
+                                                    <h4 data-sw-translate="">Parámetros</h4>
+                                                    <table class="fullwidth parameters">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""></th>
+                                                                <th style="width: 310px; max-width: 310px" data-sw-translate=""></th>
+                                                                <th style="width: 200px; max-width: 200px" data-sw-translate=""></th>
+                                                                <th style="width: 100px; max-width: 100px" data-sw-translate=""> </th>
+                                                                <th style="width: 220px; max-width: 230px" data-sw-translate=""> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="operation-params">
+                                                            <tr>
+                                                                <span class="model-signature">
+                                                                    <div>
+                                                                        <div>
+
+                                                                            <div>
+
+                                                                                <div class="signature-container">
+
+
+                                                                                    <div class="snippet" style="display: block;">
+                                                                                        <div class="snippet_json" style="display: block;">
+                                                                                            <pre><code>
+{
+    "DcdUserID":"userID",
+    "Pwd":"passwordID",
+    "JobNum":""
+}
+</code></pre>
+                                                                                            <small class="notice" data-sw-translate=""></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </form>
+
+                                                <span class="model-signature">
+                                                    <div>
+                                                        <div>
+                                                            <ul class="signature-nav">
+                                                                <h4 data-sw-translate="">Respuesta</h4>
+                                                            </ul>
+                                                            <div>
+
+                                                                <div class="signature-container">
+                                                                    <div class="description" style="display: none;">
+                                                                        <span class="strong">GetNewAttribut_output {</span><div>
+                                                                            <span class="propName ">parameters</span> (<span class="propType">inline_model</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown">
+
+                                                                        </div><span class="strong">}</span><span class="strong">inline_model {</span><div><span class="propName ">ds</span> (<span class="propType">Erp.Tablesets.AttributTableset</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributTableset {</span><div class="readOnly"><span class="propName ">Attribut</span> (<span class="propType">Array[Erp.Tablesets.AttributRow]</span>, <span class="propOptKey">optional</span>, <span class="propReadOnly">read only</span>),</div><div><span class="propName ">ExtensionTables</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableData]</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Erp.Tablesets.AttributRow {</span><div>
+
+
+                                                                        </div><div><span class="propName ">BitFlag</span> (<span class="propType">integer</span>, <span class="propOptKey">optional</span>): <span class="propDesc markdown"></span>,</div><div>
+
+                                                                        </div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableData {</span><div><span class="propName ">Table</span> (<span class="propType">Array[Ice.Extensions.ExtensionRow]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">TableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">Columns</span> (<span class="propType">Array[Ice.Extensions.ExtensionTableColumn]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PrimaryKeyColumns</span> (<span class="propType">Array[string]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableSystemCode</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">PeerTableName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionRow {</span><div><span class="propName ">ColumnValues</span> (<span class="propType">Array[Inline Model 1]</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">RowMod</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">SysRowID</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Ice.Extensions.ExtensionTableColumn {</span><div><span class="propName ">ColumnName</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>),</div><div><span class="propName ">ColumnType</span> (<span class="propType">string</span>, <span class="propOptKey">optional</span>)</div><span class="strong">}</span><span class="strong">Inline Model 1 {</span><span class="strong">}</span>
+                                                                    </div>
+
+                                                                    <div class="snippet" style="display: block;">
+                                                                        <div class="snippet_json" style="display: block;">
+                                                                            <pre><code>
+{
+    "DcdUserID": "string",
+    "Pwd": "string",
+    "JobNum": "string",
+    "Msj": "string"
+}
+</code></pre>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></p>
+                                                <br>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                     </li>
+                </ul>
+                <!--FOOTER-->
+                <div class="footer">
+                    <h4 style="color: #999">
+                        [ <span style="font-variant: small-caps">base url</span>: /api/ServiceBTW
+                        , <span style="font-variant: small-caps" data-sw-translate="">api version</span>: v 1.0.1
+                        ]
+                    </h4>
+                </div>
+</div>
+        </div>
+
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
